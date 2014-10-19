@@ -6,8 +6,9 @@
   (map read-string (str/split line #" ")))
 
 (defn average [vec1 vec2]
-  (apply map (fn [& items]
-               (int (Math/floor (/ (apply + items) 2.0)))) [vec1 vec2]))
+  (map (fn [a b]
+               (int (Math/floor (/ (+ a b) 2.0)))) 
+       vec1 vec2))
 
 (defn -main [& args]
   (let [dim (int-vector (read-line))
